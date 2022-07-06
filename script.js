@@ -540,18 +540,21 @@ console.log(test3);
 
 
 // Calculator
-
+let percent;
 function calkOne() {
     let rangOne = document.getElementById('one');
     let dollars = document.querySelector('.dollars');
     let wholeRow = document.querySelector('.whole');
     let percent2 = document.querySelector('.percent');
-    let percent  = 10; 
+    percent = 10;
+    percent2.innerHTML = percent;
     
     rangOne.addEventListener('input', ()=>{
         dollars.innerHTML= rangOne.value   + '$';
-        wholeRow.innerHTML = ( percent * rangOne.value ) / 100 + '$';
-        
+        let summ = Number(rangOne.value);
+        let percentsumm = summ + ( percent * summ ) / 100 + '$';
+        wholeRow.innerHTML = percentsumm;
+       
     });
   
     calktwo();
@@ -561,9 +564,35 @@ calkOne();
 function calktwo(){
     let rangTwo = document.getElementById('two');
     let month = document.querySelector('.month');
-    
+    let percent2 = document.querySelector('.percent');
     rangTwo.addEventListener('input', ()=>{
         month.innerHTML= rangTwo.value   + 'Month';
+        let summTwo = Number(rangTwo.value);
+        if (summTwo <= 5 ) {
+            percent = 10;
+            percent2.innerHTML = 10 + '%';
+        }
+        if (summTwo == 6) {
+            percent = 8;
+            percent2.innerHTML = 8 + '%';
+
+        }
+        if (summTwo == 12) {
+            percent = 6;
+            percent2.innerHTML = 6 + '%';
+
+        }
+        if (summTwo == 16) {
+            percent = 4;
+            percent2.innerHTML = 4 + '%';
+
+        }
+        if (summTwo == 24) {
+            percent = 2;
+            percent2.innerHTML = 1.5 + '%';
+
+        }
+    
        
     });
 }
